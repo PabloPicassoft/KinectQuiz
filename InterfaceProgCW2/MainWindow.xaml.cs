@@ -8,6 +8,8 @@ using System.Threading;
 using Microsoft.Speech.AudioFormat;
 using System.IO;
 using System.Linq;
+using System.Windows.Threading;
+using System.Windows.Controls;
 
 namespace InterfaceProgCW2
 {
@@ -22,12 +24,12 @@ namespace InterfaceProgCW2
         private SpeechRecognitionEngine sre;
         private Thread audioThread;
 
-        //private KinectSensor sensor;
+        private KinectSensor sensor;
 
         public MainWindow()
         {
             InitializeComponent();
-            //Loaded += OnLoaded;
+            Loaded += OnLoaded;
         }
 
         private void OnLoaded(object sender, RoutedEventArgs routedEventArgs)
@@ -40,7 +42,7 @@ namespace InterfaceProgCW2
 
 
         //Speech recognition methods
-        private void initializeSpeech() //called from initiate_kinect()
+        public void initializeSpeech()
         {
             RecognizerInfo ri = GetKinectRecognizer();
             sre = new SpeechRecognitionEngine(ri.Id);
@@ -56,7 +58,7 @@ namespace InterfaceProgCW2
             //load culture into grammer
             var g = new Grammar(gb);
 
-            //load grammer into engine
+            //load grammar into engine
             sre.LoadGrammar(g);
 
             //load in event handler for commands
@@ -81,36 +83,57 @@ namespace InterfaceProgCW2
 
         private void startAudioListening()
         {
-
-            //var audioSource = kinectSensor.AudioSource;
+            var audioSource = sensor.AudioSource;
             audioSource.AutomaticGainControlEnabled = false;
 
             Stream aStream = audioSource.Start();
-
             sre.SetInputToAudioStream(aStream, new SpeechAudioFormatInfo(EncodingFormat.Pcm, 16000, 16, 1, 32000, 2, null));
             sre.RecognizeAsync(RecognizeMode.Multiple);
-
         }
 
         public Choices getChoices()
         {
             var choices = new Choices();
 
-            choices.Add("hello world");// listening for computer 
+            choices.Add("hello world");// listening for Hello world to open hello world quiz question 
+            choices.Add("do while");
+            choices.Add("for loop");
+            choices.Add("if statement");
+
+            //navigate back to home
+            choices.Add("home");
+
+            //select try again button after incorrect answer
+            choices.Add("try again");
+
+            //voice selection of quiz answer
+            choices.Add("one");
+            choices.Add("two");
+            choices.Add("three");
+            //choices.Add("fizz buzz"); //add fizzbuzz question
 
             return choices;
         }
 
         public void Kinect_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            if (e.Result.Text.ToLower() == "hello world" && e.Result.Confidence >= 0.85)
+            if (this.Parent != null && (e.Result.Text.ToLower() == "home" && e.Result.Confidence >= 0.85))
             {
-                //if kinect recognises "computer", it will print "YOU SAID COMPUTER!" into the console log
-                Console.WriteLine("Hello World!!!");
+                var parent = (Panel)this.Parent;
+                parent.Children.Remove(this);
+            }
 
+            if ((e.Result.Text.ToLower() == "hello world" ||
+                e.Result.Text.ToLower() == "do while" ||
+                e.Result.Text.ToLower() == "for loop" ||
+                e.Result.Text.ToLower() == "if statement") && e.Result.Confidence >= 0.85)
+            {
+                string pageToNavTo = e.Result.Text.ToLower();
+
+                VoiceNavigation(pageToNavTo);
             }
         }
-
+        
         //for detection of the kinectsensor
         private void SensorChooserOnKinectChanged(object sender, KinectChangedEventArgs e)
         {
@@ -138,12 +161,13 @@ namespace InterfaceProgCW2
                 {
                     e.NewSensor.DepthStream.Enable(DepthImageFormat.Resolution640x480Fps30);
                     e.NewSensor.SkeletonStream.Enable();
+                    //initializeSpeech();
                     try
                     {
                         e.NewSensor.DepthStream.Range = DepthRange.Near;
                         e.NewSensor.SkeletonStream.EnableTrackingInNearRange = true;
                         e.NewSensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
-
+                        //initializeSpeech();
                     }
                     catch (InvalidOperationException)
                     {
@@ -163,25 +187,45 @@ namespace InterfaceProgCW2
                 if (!errorOccured)
                 {
                     kinectRegion.KinectSensor = e.NewSensor;
+                    this.sensor = e.NewSensor;
+                    
+                    initializeSpeech();
                 }
             }
         }
         
-        //private void ButtonOnClick(object sender, RoutedEventArgs e)
-        //{
-        //    MessageBox.Show("Well done!");
-        //}
+        public void VoiceNavigation(String pageToNavTo)
+        {
+            switch (pageToNavTo)
+            {
+                case "for loop":
+                    ForLoop ForLoopPage = new ForLoop();
+                    this.kinectRegionGrid.Children.Add(ForLoopPage);
+                    break;
+                case "if statement":
+                    IfStatement ifStatementPage = new IfStatement();
+                    this.kinectRegionGrid.Children.Add(ifStatementPage);
+                    break;
+                case "while loop":
+                    WhileLoop whileLoopPage = new WhileLoop();
+                    this.kinectRegionGrid.Children.Add(whileLoopPage);
+                    break;
+                case "hello world":
+                    HelloWorld helloWorldPage = new HelloWorld();
+                    this.kinectRegionGrid.Children.Add(helloWorldPage);
+                    break;
+                //case "home":
+                //    var parent = (Panel)this.Parent;
+                //    parent.Children.Remove(this);
+                //    break;
+            }
+        }
+
 
         private void KinectTileButtonClick(object sender, RoutedEventArgs e)
         {
             var button = (KinectTileButton)e.OriginalSource;
             string selection = button.Label as string;
-
-            //if (selection == "For Loop")
-            //{
-            //    UserControl1 ForLoopPage = new UserControl1();
-            //    this.kinectRegionGrid.Children.Add(ForLoopPage);
-            //}
 
             switch (selection)
             {
@@ -204,6 +248,4 @@ namespace InterfaceProgCW2
             }
         }
     }
-
-
 }

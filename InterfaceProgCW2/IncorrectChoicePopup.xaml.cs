@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Speech.Recognition;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,14 +26,16 @@ namespace InterfaceProgCW2
             InitializeComponent();
         }
 
-        private void TryAgainClick(object sender, RoutedEventArgs e)
+        public void TryAgainClick(object sender, RoutedEventArgs e)
         {
             var parent = (Panel)this.Parent;
             parent.Children.Remove(this);
 
             TextBlock outputParent = (TextBlock)parent.FindName("outputText");
-
-            outputParent.Text = "Output:";
+            if (outputParent != null)
+            {
+                outputParent.Text = "Output:";
+            }
         }
     }
 }

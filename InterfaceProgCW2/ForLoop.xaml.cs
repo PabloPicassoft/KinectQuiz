@@ -1,4 +1,5 @@
 ﻿using Microsoft.Kinect.Toolkit.Controls;
+using Microsoft.Speech.Recognition;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,9 @@ namespace InterfaceProgCW2
     {
 
         public string outTextVar;
+
+        //provide access to the speech methods available in mainwindow.xaml.cs 
+        //MainWindow mainWindow = new MainWindow();
 
         IncorrectChoicePopup incorrectChoice = new IncorrectChoicePopup();
 
@@ -80,5 +84,30 @@ namespace InterfaceProgCW2
                 this.KinectRegionGrid.Children.Add(incorrectChoice);
             }
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //public void Kinect_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        //{
+        //    if (e.Result.Text.ToLower() == "home" && e.Result.Confidence >= 0.85)
+        //    {
+        //        string voiceSelection = e.Result.Text.ToLower();
+
+        //        mainWindow.VoiceNavigation(voiceSelection);
+        //    }
+        //}
     }
 }
