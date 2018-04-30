@@ -1,0 +1,13 @@
+C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2\ControlsBasics-WPF\.Debug\KinectInteraction180_32.dll
+C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2\ControlsBasics-WPF\.Debug\KinectInteraction180_64.dll
+C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2\ControlsBasics-WPF\.Debug\Microsoft.Kinect.Toolkit.Controls.dll
+C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2\ControlsBasics-WPF\.Debug\Microsoft.Kinect.Toolkit.Controls.pdb
+C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.csprojResolveAssemblyReference.cache
+C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2\Microsoft.Kinect.Toolkit.Controls\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls_MarkupCompile.cache
+C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls_MarkupCompile.lref
+C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Themes\Generic.baml
+C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.g.resources
+C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.csproj.CoreCompileInputs.cache
+C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.dll
+C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2\Microsoft.Kinect.Toolkit.Controls\obj\Debug\Microsoft.Kinect.Toolkit.Controls.pdb

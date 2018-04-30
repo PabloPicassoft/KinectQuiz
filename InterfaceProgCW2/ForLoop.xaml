@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="InterfaceProgCW2.ForLoop"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:k="http://schemas.microsoft.com/kinect/2013"
+        xmlns:local="clr-namespace:InterfaceProgCW2"
+        mc:Ignorable="d"
+        Height="1000" Width="1400"
+        Background="LightSteelBlue">
+
+    <Grid Name="KinectRegionGrid">
+
+        <Label Content="For Loop" HorizontalAlignment="Center" FontSize="48" Margin="611,50,570,865" Width="219"/>
+
+        <k:KinectTileButton Label="Home" HorizontalLabelAlignment="Center"  VerticalAlignment="Center" Height="94" Click="HomeButtonClick"  Margin="610,853,570,53"/>
+
+
+
+        <k:KinectCircleButton Name="Cbutton1" HorizontalAlignment="Left" Margin="150,146,0,446" Label="1" Click="KinectCircleClick" Width="135"/>
+        <k:KinectCircleButton Name="Cbutton2" HorizontalAlignment="Left" Margin="150,315,0,269" Label="2" Click="KinectCircleClick" Width="135"/>
+        <k:KinectCircleButton Name="Cbutton3" HorizontalAlignment="Left" Margin="150,488,0,104" Label="3" Click="KinectCircleClick" Width="135"/>
+
+        <TextBlock FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="530,146,510,0" FontFamily="Microsoft JhengHei" FontWeight="Bold" Width="360" Height="72" TextAlignment="Center" Text="Complete the for loop code to&#xD;&#xA;print the numbers 1 to 10&#xA;" Background="#FF8FACC3"/>
+        <TextBlock FontSize="36" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="845,305,90,0" FontFamily="Microsoft JhengHei" Width="465" Height="240" TextAlignment="left" Background="#FF459EBF" FontWeight="Bold" Padding="20,10,0,20"><Run Text="for ( i = 1;  ????  ; i++) "/><LineBreak/><Run Text="{}{&#xA;"/><Run Text="       "/><Run Text="Console.WriteLine( i )"/><Run Text=";"/><Run Text="&#xA;}"/></TextBlock>
+
+        <TextBlock HorizontalAlignment="Right"  x:Name="answer1" Margin="0,315,935,0" TextWrapping="Wrap" VerticalAlignment="Top"  Height="41" Width="160" FontSize="36" Text="i &lt; 10"/>
+        <TextBlock HorizontalAlignment="Right"  x:Name="answer2" Margin="0,649,935,0" TextWrapping="Wrap" VerticalAlignment="Top"  Height="41" Width="160" FontSize="36"><Run Text="i &lt;"/><Run Text="="/><Run Text=" "/><Run Text="9"/></TextBlock>
+        <TextBlock HorizontalAlignment="Right"  x:Name="answer3" Margin="0,475,935,0" TextWrapping="Wrap" VerticalAlignment="Top"  Height="41" Width="160" FontSize="36" Text="i &lt;= 10"/>
+
+        <Image Name="tickimg" Source="Images/tick.png" Height="269" Margin="165,361,755,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <TextBlock HorizontalAlignment="Right"  x:Name="Congratulations" Margin="0,731,735,0" TextWrapping="Wrap" Visibility="Hidden" TextAlignment="Center" VerticalAlignment="Top"  Height="110" Width="500" FontSize="36"><Run Text="Congratulations, "/><LineBreak/><Run Text="you chose the correct answer!"/></TextBlock>
+        <TextBlock Name="outputText"  FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="845,606,90,0" FontFamily="Microsoft JhengHei" FontWeight="Bold" Width="465" Height="125" TextAlignment="left" Text="Output :" Background="#FF459EBF" Padding="20,10,0,0"/>
+    </Grid>
+</UserControl>

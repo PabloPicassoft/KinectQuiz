@@ -1,0 +1,32 @@
+﻿<UserControl x:Class="InterfaceProgCW2.IfStatement"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InterfaceProgCW2"
+             xmlns:k="http://schemas.microsoft.com/kinect/2013"
+             mc:Ignorable="d" 
+             Background="LightSteelBlue"
+             Height="1000" Width="1400">
+
+    <Grid Name="KinectRegionGrid">
+        <Label Content="If Statement" HorizontalAlignment="Center" FontSize="48" Margin="560,45,520,865" Width="320"/>
+
+        <k:KinectTileButton Label="Home" HorizontalLabelAlignment="Center"  VerticalAlignment="Center" Height="94" Click="HomeButtonClick"  Margin="610,843,570,63"/>
+
+        <k:KinectCircleButton Name="Cbutton1" HorizontalAlignment="Left" Margin="120,187,0,405" Label="1" Click="KinectCircleClick" Width="135"/>
+        <k:KinectCircleButton Name="Cbutton2" HorizontalAlignment="Left" Margin="120,356,0,228" Label="2" Click="KinectCircleClick" Width="135"/>
+        <k:KinectCircleButton Name="Cbutton3" HorizontalAlignment="Left" Margin="120,529,0,63" Label="3" Click="KinectCircleClick" Width="135"/>
+
+        <TextBlock FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="450,163,465,0" FontFamily="Microsoft JhengHei" FontWeight="Bold" Width="485" Height="104" TextAlignment="Center" Background="#FF8FACC3"><Run Text="Complete the "/><Run Text="if statement "/><Run Text="co"/><Run Text="ndition"/><Run Text="&#xA;"/><Run Text="to "/><Run Text="print the value of 'number' "/><LineBreak/><Run Text="variable"/><Run Text=" if it is less than 40"/><Run Text="&#xA;"/></TextBlock>
+        <TextBlock FontSize="36" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="690,312,100,0" FontFamily="Microsoft JhengHei" Width="610" Height="341" TextAlignment="left" Background="#FF459EBF" FontWeight="Bold" Padding="20,10,0,20"><Run Text="int number = 30;"/><LineBreak/><Run/><LineBreak/><Run Text="if"/><Run Text=" ( "/><Run Text="?? "/><Run Text=" ??"/><Run Text=" "/><Run Text=" ??"/><Run Text=") "/><LineBreak/><Run Text="{}{&#xA;"/><Run Text="       "/><Run Text="Console.WriteLine( "/><Run Text="number"/><Run Text=" )"/><Run Text=";"/><Run Text="&#xA;}"/></TextBlock>
+
+        <TextBlock HorizontalAlignment="Right"  x:Name="answer1" Margin="0,356,805,0" TextWrapping="Wrap" VerticalAlignment="Top"  Height="46" Width="320" FontSize="36"><Run Text="number.equals"/><Run Text="(40)"/></TextBlock>
+        <TextBlock HorizontalAlignment="Right"  x:Name="answer2" Margin="0,690,865,0" TextWrapping="Wrap" VerticalAlignment="Top"  Height="56" Width="260" FontSize="36"><Run Text="number &lt;"/><Run Text=" "/><Run Text="40"/></TextBlock>
+        <TextBlock HorizontalAlignment="Right"  x:Name="answer3" Margin="0,516,895,0" TextWrapping="Wrap" VerticalAlignment="Top"  Height="50" Width="230" FontSize="36"><Run Text="number "/><Run Text="&gt;"/><Run Text=" "/><Run Text="40"/></TextBlock>
+
+        <Image Name="tickimg" Source="Images/tick.png" Height="269" Margin="165,361,755,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <TextBlock HorizontalAlignment="Right"  x:Name="Congratulations" Margin="0,731,735,0" TextWrapping="Wrap" Visibility="Hidden" TextAlignment="Center" VerticalAlignment="Top"  Height="110" Width="500" FontSize="36"><Run Text="Congratulations, "/><LineBreak/><Run Text="you chose the correct answer!"/></TextBlock>
+        <TextBlock x:Name="outputText"  FontSize="24" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="690,690,100,0" FontFamily="Microsoft JhengHei" FontWeight="Bold" Width="610" Height="125" TextAlignment="left" Text="Output :" Background="#FF459EBF" Padding="20,10,0,0"/>
+    </Grid>
+</UserControl>
