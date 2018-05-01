@@ -30,3 +30,5 @@ C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2 new\InterfacePr
 C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2 new\InterfaceProgCW2\InterfaceProgCW2\obj\Debug\WhileLoop.baml
 C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2 new\InterfaceProgCW2\InterfaceProgCW2\obj\Debug\HelloWorld.g.cs
 C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2 new\InterfaceProgCW2\InterfaceProgCW2\obj\Debug\HelloWorld.baml
+C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2 new\InterfaceProgCW2\InterfaceProgCW2\obj\Debug\Methods.g.cs
+C:\Users\paul\Documents\Uni_Semester_1\Interface-programming\CW2 new\InterfaceProgCW2\InterfaceProgCW2\obj\Debug\Methods.baml

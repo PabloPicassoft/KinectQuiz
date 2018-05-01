@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="InterfaceProgCW2.Methods"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:InterfaceProgCW2"
+             xmlns:k="http://schemas.microsoft.com/kinect/2013"
+             mc:Ignorable="d" 
+             Height="1000" Width="1400"
+        Background="LightSteelBlue">
+
+
+    <Grid x:Name="KinectRegionGrid">
+
+        <Grid>
+            <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
+            <k:KinectUserViewer VerticalAlignment="Top" HorizontalAlignment="Right" k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="150" />
+        </Grid>
+
+        <Label Content="Methods" HorizontalAlignment="Center" FontSize="48" Margin="611,50,570,865" Width="219"/>
+
+        <k:KinectTileButton Label="Home" HorizontalLabelAlignment="Center"  VerticalAlignment="Center" Height="94" Click="HomeButtonClick"  Margin="610,863,570,43"/>
+
+        <k:KinectCircleButton Name="Cbutton1" HorizontalAlignment="Left" Margin="150,146,0,446" Label="1" Click="KinectCircleClick" Width="135"/>
+        <k:KinectCircleButton Name="Cbutton2" HorizontalAlignment="Left" Margin="150,315,0,269" Label="2" Click="KinectCircleClick" Width="135"/>
+        <k:KinectCircleButton Name="Cbutton3" HorizontalAlignment="Left" Margin="150,488,0,104" Label="3" Click="KinectCircleClick" Width="135"/>
+
+        <TextBlock FontSize="20" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="505,146,485,0" FontFamily="Microsoft JhengHei" FontWeight="Bold" Width="410" Height="72" TextAlignment="Center" Background="#FF8FACC3"><Run Text="U"/><Run Text="se the multiply method to "/><Run Text="print "/><Run Text="the"/><LineBreak/><Run Text="result"/><Run Text=" of 12 x 5 in the console"/><Run Text=" output"/></TextBlock>
+        <TextBlock FontSize="16" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="759,240,135,0" FontFamily="Microsoft JhengHei" Width="506" Height="460" TextAlignment="left" Background="#FF459EBF" FontWeight="Bold" Padding="20,10,0,20"><Run Text="class "/><Run Text="NumberMultiplier "/><LineBreak/><Run/><Run Text="{}{"/><LineBreak/><Run Text="      "/><Run Text="Private"/><Run Text=" int "/><Run Text="Multiply"/><Run Text="(int num1, int num2) "/><LineBreak/><Run Text="      "/><Run Text="{}{"/><LineBreak/><Run Text="         "/><Run Text="   "/><Run Text="int result;"/><LineBreak/><Run Text="         "/><LineBreak/><Run Text="         "/><Run Text="   result = num1 * num2;"/><LineBreak/><Run Text="         "/><LineBreak/><Run Text="       "/><Run Text="     "/><Run Text="return result;"/><LineBreak/><Run Text="       }"/><LineBreak/><Run Text="}"/><LineBreak/><Run/><LineBreak/><Run Text="class MultiplierTest"/><LineBreak/><Run Text="{}{"/><LineBreak/><Run Text="      static void Main(string[] args)"/><LineBreak/><Run Text="      {"/><LineBreak/><Run Text="             NumberMultiplier "/><Run Text=" testMult = new "/><Run Text="NumberMultiplier "/><Run Text="();"/><LineBreak/><Run Text="             Console.WriteLine(&quot;"/><Run Text="Multiplication Result: "/><Run Text="&quot;"/><Run Text=" + "/><Run Text="?????)"/><Run Text=";"/><LineBreak/><Run Text="      }"/><LineBreak/><Run Text="}"/></TextBlock>
+
+        <TextBlock HorizontalAlignment="Right"  x:Name="answer1" Margin="0,302,880,0" TextWrapping="Wrap" VerticalAlignment="Top"  Height="41" Width="215" FontSize="24"><Run Text="Multiply("/><Run Text="12,"/><Run Text=" 5)"/></TextBlock>
+        <TextBlock HorizontalAlignment="Right"  x:Name="answer2" Margin="0,647,610,0" TextWrapping="Wrap" VerticalAlignment="Top"  Height="41" Width="485" FontSize="24"><Run Text="testMult"/><Run Text=".Multiply(12,5)"/></TextBlock>
+        <TextBlock HorizontalAlignment="Right"  x:Name="answer3" Margin="0,480,810,0" TextWrapping="Wrap" VerticalAlignment="Top"  Height="41" Width="285" FontSize="24"><Run Text="NumberMultiplier"/><Run Text="(12,5"/><Run Text=")"/></TextBlock>
+
+        <Image Name="tickimg" Source="Images/tick.png" Height="269" Margin="165,361,755,0" VerticalAlignment="Top" Visibility="Hidden"/>
+        <TextBlock HorizontalAlignment="Right"  x:Name="Congratulations" Margin="0,731,735,0" TextWrapping="Wrap" Visibility="Hidden" TextAlignment="Center" VerticalAlignment="Top"  Height="110" Width="500" FontSize="36"><Run Text="Congratulations, "/><LineBreak/><Run Text="you chose the correct answer!"/></TextBlock>
+        <TextBlock Name="outputText"  FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="759,731,135,0" FontFamily="Microsoft JhengHei" FontWeight="Bold" Width="506" Height="99" TextAlignment="left" Text="Output :" Background="#FF459EBF" Padding="20,10,0,0"/>
+    </Grid>
+</UserControl>

@@ -55,51 +55,18 @@
                         <ImageBrush ImageSource="Images/forloop.jpg"/>
                     </k:KinectTileButton.Background>
                 </k:KinectTileButton>
+                
+                <k:KinectTileButton Label="Methods" Click="KinectTileButtonClick" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="554,0,0,350" Width="284" >
+                    <k:KinectTileButton.Background>
+                        <ImageBrush ImageSource="Images/method.png"/>
+                    </k:KinectTileButton.Background>
+                </k:KinectTileButton>
 
             </Grid>
 
 
         </k:KinectRegion>
         
-        
-
-        <!--<k:KinectCircleButton Label="Circle" HorizontalAlignment="Right" Height="200" Click="ButtonOnClick">Hi</k:KinectCircleButton>
-        <k:KinectScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto" VerticalAlignment="Center">
-            <StackPanel Orientation="Horizontal" Name="scrollContent" />
-        </k:KinectScrollViewer> -->
-
-        <!--<StackPanel Name="myStackPanel" Margin="1,0,120,54">
-            <Image Height="319" Name="myImg" Stretch="Fill" Width="357" />
-        </StackPanel>
-        <Grid x:Name="ContentPanel" Margin="0,0,121,54"></Grid>
-
-
-        <Label Content="Label" Name="message" Margin="2,317,121,0" />
-        <Button x:Name="Button1" Content="" Margin="357,77,0,222" Click="ButtonOnClick">
-            <Button.Background>
-                <ImageBrush ImageSource="C:\Users\paul\Desktop\interfaceprogIMG\forloop.jpg"></ImageBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="Button3" Content="" Margin="357,147,0,148" Click="ButtonOnClick">
-            <Button.Background>
-                <ImageBrush ImageSource="C:\Users\paul\Desktop\interfaceprogIMG\forloop.jpg"></ImageBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="Button4" Content="" Margin="357,224,0,0" Height="73" VerticalAlignment="Top" Click="ButtonOnClick">
-            <Button.Background>
-                <ImageBrush ImageSource="C:\Users\paul\Desktop\interfaceprogIMG\forloop.jpg"></ImageBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="Button5" Content="" Margin="357,298,0,0" Click="ButtonOnClick">
-            <Button.Background>
-                <ImageBrush ImageSource="C:\Users\paul\Desktop\interfaceprogIMG\forloop.jpg"></ImageBrush>
-            </Button.Background>
-        </Button>
-        <Button x:Name="Button2" Content="" Margin="357,0,0,294" Click="ButtonOnClick">
-            <Button.Background>
-                <ImageBrush ImageSource="C:\Users\paul\Desktop\interfaceprogIMG\forloop.jpg"></ImageBrush>
-            </Button.Background>
-        </Button>-->
     </Grid>
 
 </Window>

@@ -19,15 +19,17 @@ namespace InterfaceProgCW2
     /// 
     public partial class MainWindow : Window
     {
+        //SpeechHelper speechHelper;
+
         private KinectSensorChooser sensorChooser;
-
-        private SpeechRecognitionEngine sre;
-        private Thread audioThread;
-
+        public SpeechRecognitionEngine sre;
+        public Thread audioThread;
         private KinectSensor sensor;
-
+        
         public MainWindow()
         {
+            //speechHelper = new SpeechHelper();
+
             InitializeComponent();
             Loaded += OnLoaded;
         }
@@ -38,9 +40,10 @@ namespace InterfaceProgCW2
             this.sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
             this.sensorChooserUi.KinectSensorChooser = this.sensorChooser;
             this.sensorChooser.Start();
+
+            //speechHelper.SetKinectSensorChooser(this.sensorChooser);
         }
-
-
+        
         //Speech recognition methods
         public void initializeSpeech()
         {
@@ -99,6 +102,7 @@ namespace InterfaceProgCW2
             choices.Add("do while");
             choices.Add("for loop");
             choices.Add("if statement");
+            choices.Add("methods");
 
             //navigate back to home
             choices.Add("home");
@@ -117,7 +121,7 @@ namespace InterfaceProgCW2
 
         public void Kinect_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            if (this.Parent != null && (e.Result.Text.ToLower() == "home" && e.Result.Confidence >= 0.85))
+            if (this.Parent != null && (e.Result.Text.ToLower() == "home" && e.Result.Confidence >= 0.75))
             {
                 var parent = (Panel)this.Parent;
                 parent.Children.Remove(this);
@@ -126,7 +130,8 @@ namespace InterfaceProgCW2
             if ((e.Result.Text.ToLower() == "hello world" ||
                 e.Result.Text.ToLower() == "do while" ||
                 e.Result.Text.ToLower() == "for loop" ||
-                e.Result.Text.ToLower() == "if statement") && e.Result.Confidence >= 0.85)
+                e.Result.Text.ToLower() == "methods" ||
+                e.Result.Text.ToLower() == "if statement") && e.Result.Confidence >= 0.75)
             {
                 string pageToNavTo = e.Result.Text.ToLower();
 
@@ -135,7 +140,7 @@ namespace InterfaceProgCW2
         }
         
         //for detection of the kinectsensor
-        private void SensorChooserOnKinectChanged(object sender, KinectChangedEventArgs e)
+        public void SensorChooserOnKinectChanged(object sender, KinectChangedEventArgs e)
         {
             bool errorOccured = false;
 
@@ -187,13 +192,23 @@ namespace InterfaceProgCW2
                 if (!errorOccured)
                 {
                     kinectRegion.KinectSensor = e.NewSensor;
-                    this.sensor = e.NewSensor;
+                    setKinectSensor(e.NewSensor);
                     
                     initializeSpeech();
                 }
             }
         }
         
+        public void setKinectSensor (KinectSensor theSensor)
+        {
+            this.sensor = theSensor;
+        }
+
+        public KinectSensor getKinectSensor()
+        {
+            return this.sensor;
+        }
+
         public void VoiceNavigation(String pageToNavTo)
         {
             switch (pageToNavTo)
@@ -214,10 +229,14 @@ namespace InterfaceProgCW2
                     HelloWorld helloWorldPage = new HelloWorld();
                     this.kinectRegionGrid.Children.Add(helloWorldPage);
                     break;
-                //case "home":
-                //    var parent = (Panel)this.Parent;
-                //    parent.Children.Remove(this);
-                //    break;
+                case "methods":
+                    Methods methodsPage = new Methods();
+                    this.kinectRegionGrid.Children.Add(methodsPage);
+                    break;
+                    //case "home":
+                    //    var parent = (Panel)this.Parent;
+                    //    parent.Children.Remove(this);
+                    //    break;
             }
         }
 
@@ -244,6 +263,10 @@ namespace InterfaceProgCW2
                 case "Hello World":
                     HelloWorld helloWorldPage = new HelloWorld();
                     this.kinectRegionGrid.Children.Add(helloWorldPage);
+                    break;
+                case "Methods":
+                    Methods methodsPage = new Methods();
+                    this.kinectRegionGrid.Children.Add(methodsPage);
                     break;
             }
         }

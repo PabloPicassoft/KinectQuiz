@@ -83,6 +83,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Methods.xaml.cs">
+      <DependentUpon>Methods.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpeechHelper.cs" />
     <Compile Include="WhileLoop.xaml.cs">
       <DependentUpon>WhileLoop.xaml</DependentUpon>
     </Compile>
@@ -122,6 +126,10 @@
     <Page Include="MainWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="Methods.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="WhileLoop.xaml">
       <SubType>Designer</SubType>
@@ -168,6 +176,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\fizzbuzz.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\method.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

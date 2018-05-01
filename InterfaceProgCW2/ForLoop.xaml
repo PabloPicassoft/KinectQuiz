@@ -9,13 +9,17 @@
         Height="1000" Width="1400"
         Background="LightSteelBlue">
 
-    <Grid Name="KinectRegionGrid">
+
+    <Grid x:Name="KinectRegionGrid">
+
+        <Grid>
+            <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
+            <k:KinectUserViewer VerticalAlignment="Top" HorizontalAlignment="Right" k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegionGrid}" Height="150" />
+        </Grid>
 
         <Label Content="For Loop" HorizontalAlignment="Center" FontSize="48" Margin="611,50,570,865" Width="219"/>
 
         <k:KinectTileButton Label="Home" HorizontalLabelAlignment="Center"  VerticalAlignment="Center" Height="94" Click="HomeButtonClick"  Margin="610,853,570,53"/>
-
-
 
         <k:KinectCircleButton Name="Cbutton1" HorizontalAlignment="Left" Margin="150,146,0,446" Label="1" Click="KinectCircleClick" Width="135"/>
         <k:KinectCircleButton Name="Cbutton2" HorizontalAlignment="Left" Margin="150,315,0,269" Label="2" Click="KinectCircleClick" Width="135"/>
