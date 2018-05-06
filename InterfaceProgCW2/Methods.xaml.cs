@@ -51,16 +51,15 @@ namespace InterfaceProgCW2
             {
                 outTextVar = "INCORRECT";
                 PopulateText(outTextVar);
-
+                
                 this.KinectRegionGrid.Children.Add(incorrectChoice);
             }
             else if (selection == "2")
             {
                 outTextVar = "INCORRECT";
                 PopulateText(outTextVar);
-
-                this.KinectRegionGrid.Children.Add(incorrectChoice);
                 
+                this.KinectRegionGrid.Children.Add(incorrectChoice);
             }
             else if (selection == "3")
             {
