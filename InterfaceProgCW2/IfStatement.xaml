@@ -7,7 +7,7 @@
              xmlns:k="http://schemas.microsoft.com/kinect/2013"
              mc:Ignorable="d" 
              Background="LightSteelBlue"
-             Height="1000" Width="1400">
+             Height="970" Width="1400">
 
     <Grid Name="KinectRegionGrid">
         <Label Content="If Statement" HorizontalAlignment="Center" FontSize="48" Margin="560,45,520,865" Width="320"/>

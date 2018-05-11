@@ -221,7 +221,7 @@ namespace InterfaceProgCW2
                     IfStatement ifStatementPage = new IfStatement();
                     this.kinectRegionGrid.Children.Add(ifStatementPage);
                     break;
-                case "while loop":
+                case "do while":
                     WhileLoop whileLoopPage = new WhileLoop();
                     this.kinectRegionGrid.Children.Add(whileLoopPage);
                     break;
@@ -233,10 +233,6 @@ namespace InterfaceProgCW2
                     Methods methodsPage = new Methods();
                     this.kinectRegionGrid.Children.Add(methodsPage);
                     break;
-                    //case "home":
-                    //    var parent = (Panel)this.Parent;
-                    //    parent.Children.Remove(this);
-                    //    break;
             }
         }
 
@@ -256,7 +252,7 @@ namespace InterfaceProgCW2
                     IfStatement ifStatementPage = new IfStatement();
                     this.kinectRegionGrid.Children.Add(ifStatementPage);
                     break;
-                case "While Loop":
+                case "Do While":
                     WhileLoop whileLoopPage = new WhileLoop();
                     this.kinectRegionGrid.Children.Add(whileLoopPage);
                     break;

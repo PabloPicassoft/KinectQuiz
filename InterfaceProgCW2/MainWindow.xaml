@@ -8,19 +8,19 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1000" Width="1400"
         Background="LightSteelBlue">
-    
+
     <Grid>
         <Grid>
             <k:KinectSensorChooserUI HorizontalAlignment="Center" VerticalAlignment="Top" Name="sensorChooserUi" />
             <k:KinectUserViewer VerticalAlignment="Top" HorizontalAlignment="Right" k:KinectRegion.KinectRegion="{Binding ElementName=kinectRegion}" Height="150" />
         </Grid>
-        
-        
+
+
         <k:KinectRegion Name="kinectRegion">
-            
+
             <Grid x:Name="kinectRegionGrid">
 
-                <TextBlock FontSize="48" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="162,72,132,0" FontFamily="Microsoft YaHei UI Light" FontWeight="Bold" Width="898"><Run Text="Welcome To the "/><Run Text="C# "/><Run Text="Programming Quiz"/></TextBlock>
+                <TextBlock FontSize="48" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="352,72,313,0" FontFamily="Microsoft YaHei UI Light" FontWeight="Bold" Width="727"><Run Text="Welcome To "/><Run Text="Programming in C#"/></TextBlock>
 
                 <TextBlock FontSize="22" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="510,229,497,0" FontFamily="Microsoft JhengHei" FontWeight="Bold" Width="385" Height="91" TextAlignment="Center" Text="Say the name of the question you&#xD;&#xA;want to attempt, or hover over a &#xD;&#xA;button to choose.&#xD;&#xA;" Background="#FF8FACC3"/>
 
@@ -30,7 +30,7 @@
                     </k:KinectTileButton.Background>
                 </k:KinectTileButton>
 
-                <k:KinectTileButton Label="While Loop" Click="KinectTileButtonClick" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="70" Width="284" >
+                <k:KinectTileButton Label="Do While" Click="KinectTileButtonClick" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="70" Width="284" >
                     <k:KinectTileButton.Background>
                         <ImageBrush ImageSource="Images\while.png"/>
                     </k:KinectTileButton.Background>
@@ -55,7 +55,7 @@
                         <ImageBrush ImageSource="Images/forloop.jpg"/>
                     </k:KinectTileButton.Background>
                 </k:KinectTileButton>
-                
+
                 <k:KinectTileButton Label="Methods" Click="KinectTileButtonClick" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="554,0,0,350" Width="284" >
                     <k:KinectTileButton.Background>
                         <ImageBrush ImageSource="Images/method.png"/>
@@ -66,7 +66,7 @@
 
 
         </k:KinectRegion>
-        
+
     </Grid>
 
 </Window>
