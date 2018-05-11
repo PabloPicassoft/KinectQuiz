@@ -16,11 +16,8 @@ namespace InterfaceProgCW2
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    /// 
     public partial class MainWindow : Window
     {
-        //SpeechHelper speechHelper;
-
         private KinectSensorChooser sensorChooser;
         public SpeechRecognitionEngine sre;
         public Thread audioThread;
@@ -28,8 +25,6 @@ namespace InterfaceProgCW2
         
         public MainWindow()
         {
-            //speechHelper = new SpeechHelper();
-
             InitializeComponent();
             Loaded += OnLoaded;
         }
@@ -40,11 +35,9 @@ namespace InterfaceProgCW2
             this.sensorChooser.KinectChanged += SensorChooserOnKinectChanged;
             this.sensorChooserUi.KinectSensorChooser = this.sensorChooser;
             this.sensorChooser.Start();
-
-            //speechHelper.SetKinectSensorChooser(this.sensorChooser);
         }
         
-        //Speech recognition methods
+        //Speech recognition method that will inititalise 
         public void initializeSpeech()
         {
             RecognizerInfo ri = GetKinectRecognizer();
@@ -84,6 +77,7 @@ namespace InterfaceProgCW2
             return SpeechRecognitionEngine.InstalledRecognizers().Where(matchingFunc).FirstOrDefault();
         }
 
+        //this method will be called whithin initializeSpeech(), its purpose is to be
         private void startAudioListening()
         {
             var audioSource = sensor.AudioSource;
@@ -119,27 +113,34 @@ namespace InterfaceProgCW2
             return choices;
         }
 
+        //When the kinect detects one of the commands stored in the 'Choices' list, this method will be called to
+        //perform an action based on which command was triggered 
         public void Kinect_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
         {
-            if (this.Parent != null && (e.Result.Text.ToLower() == "home" && e.Result.Confidence >= 0.75))
-            {
-                var parent = (Panel)this.Parent;
-                parent.Children.Remove(this);
-            }
-
+            
+            //This 
             if ((e.Result.Text.ToLower() == "hello world" ||
                 e.Result.Text.ToLower() == "do while" ||
                 e.Result.Text.ToLower() == "for loop" ||
                 e.Result.Text.ToLower() == "methods" ||
-                e.Result.Text.ToLower() == "if statement") && e.Result.Confidence >= 0.75)
+                e.Result.Text.ToLower() == "if statement" ||
+                e.Result.Text.ToLower() == "fizzbuzz" ||
+                e.Result.Text.ToLower() == "fizz buzz") && e.Result.Confidence >= 0.75)
             {
+                //store the speech command that was recognised in a string variable
                 string pageToNavTo = e.Result.Text.ToLower();
 
+                //pass the string variable to the VoiceNavigation mehtod as a parameter to be processed through the switch
+                //case statement - this will specify which of the cases to run through.
                 VoiceNavigation(pageToNavTo);
             }
         }
-        
-        //for detection of the kinectsensor
+
+        /* for detection of the kinectsensor in various cases, such as the kinect being unplugged, 
+        * another kinect being plugged in or any other exception occuring.
+        * if no error occurs, the kinect sensor that was detected will be assigned to a global
+        * variable to be used throught the application 
+        */
         public void SensorChooserOnKinectChanged(object sender, KinectChangedEventArgs e)
         {
             bool errorOccured = false;
@@ -166,17 +167,14 @@ namespace InterfaceProgCW2
                 {
                     e.NewSensor.DepthStream.Enable(DepthImageFormat.Resolution640x480Fps30);
                     e.NewSensor.SkeletonStream.Enable();
-                    //initializeSpeech();
                     try
                     {
                         e.NewSensor.DepthStream.Range = DepthRange.Near;
                         e.NewSensor.SkeletonStream.EnableTrackingInNearRange = true;
                         e.NewSensor.SkeletonStream.TrackingMode = SkeletonTrackingMode.Seated;
-                        //initializeSpeech();
                     }
                     catch (InvalidOperationException)
-                    {
-                        // Non Kinect for Windows devices do not support Near mode, so reset back to default mode.  
+                    { 
                         e.NewSensor.DepthStream.Range = DepthRange.Default;
                         e.NewSensor.SkeletonStream.EnableTrackingInNearRange = false;
                         errorOccured = true;
@@ -184,11 +182,12 @@ namespace InterfaceProgCW2
                 }
                 catch (InvalidOperationException)
                 {
-                    // KinectSensor might enter an invalid state while enabling/disabling streams or stream features.  
-                    // E.g.: sensor might be abruptly unplugged.  
                     errorOccured = true;
                 }
 
+                //if no error occured, assign the sensor to the kinectregion's kinectsensor property so that
+                //interaction can occur with skeletal tracking
+                //call the inititalizeSpeech method to being listening for voice commands, therefore enabling voice navigation.
                 if (!errorOccured)
                 {
                     kinectRegion.KinectSensor = e.NewSensor;
@@ -199,6 +198,7 @@ namespace InterfaceProgCW2
             }
         }
         
+
         public void setKinectSensor (KinectSensor theSensor)
         {
             this.sensor = theSensor;
@@ -209,6 +209,12 @@ namespace InterfaceProgCW2
             return this.sensor;
         }
 
+        /*
+        * this method will handle navigation based on voice command by accepting a 
+        * string parameter containing one of the six choices and porcessing it through
+        * a switch case block. Each case will add its respective page to the children of
+        * the kinectregiongrid and navigate the user to their desired page.
+        */
         public void VoiceNavigation(String pageToNavTo)
         {
             switch (pageToNavTo)
@@ -233,10 +239,23 @@ namespace InterfaceProgCW2
                     Methods methodsPage = new Methods();
                     this.kinectRegionGrid.Children.Add(methodsPage);
                     break;
+                case "fizz buzz":
+                    FizzBuzz fizzBuzzPage = new FizzBuzz();
+                    this.kinectRegionGrid.Children.Add(fizzBuzzPage);
+                    break;
+                case "fizzbuzz":
+                    FizzBuzz fizzBuzzPage2 = new FizzBuzz();
+                    this.kinectRegionGrid.Children.Add(fizzBuzzPage2);
+                    break;
             }
         }
 
 
+        /*
+        * this method performs the same functionality as the VoiceNavigation method
+        * however it will take the source of the button click as a parameter
+        * using the button label to distinguish between cases in the switch case block. 
+        */
         private void KinectTileButtonClick(object sender, RoutedEventArgs e)
         {
             var button = (KinectTileButton)e.OriginalSource;
@@ -263,6 +282,10 @@ namespace InterfaceProgCW2
                 case "Methods":
                     Methods methodsPage = new Methods();
                     this.kinectRegionGrid.Children.Add(methodsPage);
+                    break;
+                case "FizzBuzz":
+                    FizzBuzz fizzBuzzPage = new FizzBuzz();
+                    this.kinectRegionGrid.Children.Add(fizzBuzzPage);
                     break;
             }
         }

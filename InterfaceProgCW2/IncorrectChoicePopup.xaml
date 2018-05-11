@@ -11,7 +11,7 @@
 
     <Grid>
         <Image  Height="100" Margin="151,90,149,210"  Width="100" Source="Images\cross.png" Visibility="Visible"/>
-        <k:KinectTileButton Name="TryAgain" Height="70" Margin="117,300,119,30" Label="try again" FontSize="25" HorizontalLabelAlignment="Center" Width="auto" Click="TryAgainClick"/>
+        <k:KinectTileButton Name="TryAgain" Height="70" Margin="117,300,119,30" Label="Try Again" 
+                            FontSize="25" HorizontalLabelAlignment="Center" Width="auto" Click="TryAgainClick"/>
     </Grid>
-
 </UserControl>

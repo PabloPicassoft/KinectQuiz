@@ -93,3 +93,5 @@ F:\KinectQuiz\InterfaceProgCW2\obj\Debug\InterfaceProgCW2.csproj.GenerateResourc
 F:\KinectQuiz\InterfaceProgCW2\obj\Debug\InterfaceProgCW2.csproj.CoreCompileInputs.cache
 F:\KinectQuiz\InterfaceProgCW2\obj\Debug\InterfaceProgCW2.exe
 F:\KinectQuiz\InterfaceProgCW2\obj\Debug\InterfaceProgCW2.pdb
+C:\Users\Paul\Documents\semester2stuff\KinectQuiz\InterfaceProgCW2\obj\Debug\FizzBuzz.g.cs
+C:\Users\Paul\Documents\semester2stuff\KinectQuiz\InterfaceProgCW2\obj\Debug\FizzBuzz.baml

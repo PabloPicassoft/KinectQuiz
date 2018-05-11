@@ -73,6 +73,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="FizzBuzz.xaml.cs">
+      <DependentUpon>FizzBuzz.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ForLoop.xaml.cs">
       <DependentUpon>ForLoop.xaml</DependentUpon>
     </Compile>
@@ -90,6 +93,10 @@
     <Compile Include="WhileLoop.xaml.cs">
       <DependentUpon>WhileLoop.xaml</DependentUpon>
     </Compile>
+    <Page Include="FizzBuzz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="HandCursor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
